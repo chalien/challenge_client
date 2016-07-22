@@ -16,6 +16,7 @@ const Step = createClass({
   getInitialState(){
     return {
       currentStep: 'household',
+      people: [],
       household: {
         id: null,
         address:  '',
@@ -54,12 +55,31 @@ const Step = createClass({
     });
   },
 
+  savePerson(attributes){
+    var context = this;
+    var { household, people } = this.state;
+    var params = { person:  attributes };
+
+    attributes["household_id"] = household.id;
+
+    HttpHelper.post('/people', params)
+    .then(function(response){
+      var t = {people: people.concat([response.data])};
+      context.setState(t);
+      // context.onNextHandler();
+    })
+    .catch(function(error){
+      console.warn(error);
+      // console.log(error.response.data);
+    });
+  },
+
   render() {
     var { currentStep } = this.state;
     return (
       <div className="step">
         { currentStep == 'household' ? <HouseholdStep household = { this.state.household } saveHousehold= { this.saveHousehold } onNextHandler = { this.onNextHandler} onBackHandler= { this.onBackHandler }></HouseholdStep> : null }
-        { currentStep == 'person' ?  <PersonStep onNextHandler = { this.onNextHandler} onBackHandler= { this.onBackHandler }></PersonStep> : null }
+        { currentStep == 'person' ?  <PersonStep people = { this.state.people } savePerson = { this.savePerson } onNextHandler = { this.onNextHandler} onBackHandler= { this.onBackHandler }></PersonStep> : null }
         { currentStep == 'vehicle' ?  <VehicleStep onNextHandler = { this.onNextHandler} onBackHandler= { this.onBackHandler }></VehicleStep> : null }
       </div>
     );
