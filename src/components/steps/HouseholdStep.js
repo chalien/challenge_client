@@ -56,32 +56,70 @@ const HouseholdStep= createClass({
         <form onSubmit={this.onSubmitHandler}>
           <div className="form-group">
             <label htmlFor="address">Address</label>
-            <input type="input" name="address" onChange={this.handleChange} id="address" placeholder="Address" className="form-control" value={address} required/>
+            <input
+              type="input"
+              name="address"
+              onChange={this.handleChange}
+              id="address"
+              placeholder="Address"
+              className="form-control"
+              value={address} required/>
           </div>
 
           <div className="form-group">
             <label htmlFor="zip">Zip Code</label>
-            <input type="input" name="zip" onChange={this.handleChange}  id="zip" placeholder="Zip" className="form-control" value={zip} required/>
+            <input
+              type="input"
+              name="zip"
+              onChange={this.handleChange}
+              id="zip"
+              placeholder="Zip"
+              className="form-control"
+              value={zip} required/>
           </div>
 
           <div className="form-group">
             <label htmlFor="city">City</label>
-            <input type="input" name="city" onChange={this.handleChange}  id="city" placeholder="City" className="form-control" value={city} required/>
+            <input
+              type="input"
+              name="city"
+              onChange={this.handleChange}
+              id="city"
+              placeholder="City"
+              className="form-control"
+              value={city} required/>
           </div>
 
           <div className="form-group">
             <label htmlFor="state">State</label>
-            <input type="input" name="state" onChange={this.handleChange}  id="state" placeholder="State" className="form-control" value={state} required/>
+            <input
+              type="input"
+              name="state"
+              onChange={this.handleChange}
+              id="state"
+              placeholder="State"
+              className="form-control"
+              value={state} required/>
           </div>
 
           <div className={"form-group has-" + this.validNumberofBedrooms()}>
             <label htmlFor="number_of_bedrooms">Number of Bedrooms</label>
-            <input type="input" name="numberOfBedrooms" onChange={this.handleChange}  id="number_of_bedrooms" placeholder="Number of Bedrooms" className="form-control" value={numberOfBedrooms} required/>
+            <input
+              type="input"
+              name="numberOfBedrooms"
+              onChange={this.handleChange}
+              id="number_of_bedrooms"
+              placeholder="Number of Bedrooms"
+              className="form-control"
+              value={numberOfBedrooms} required/>
             {this.validNumberofBedrooms() == 'error' ?   <span  className="help-block">This is not a number.</span> : null}
           </div>
 
           <div className="step-container">
-            <input type="submit" className="btn btn-default" value="Next" />
+            <input
+              type="submit"
+              className="btn btn-default"
+              value="Next" />
           </div>
         </form>
       </div>
