@@ -28,9 +28,9 @@ const InfoStep = (props) => {
           </dl>
 
           <h3>People</h3>
-          <PeopleList people = { props.people } ></PeopleList>
+          <PeopleList people = {props.people} removePerson = {props.removePerson} />
           <h3>Vehicles</h3>
-          <VehicleList vehicles = { props.vehicles } ></VehicleList>
+          <VehicleList vehicles = {props.vehicles} removeVehicle = {props.removeVehicle} />
         </div>
       </div>
 
@@ -39,6 +39,14 @@ const InfoStep = (props) => {
       </div>
     </div>
   );
+};
+
+InfoStep.propTypes = function(){
+  return {
+    'household': PropTypes.object.isRequired,
+    'removeVehicle': PropTypes.func.isRequired,
+    'onBackHandler': PropTypes.func.isRequired,
+  };
 };
 
 export default InfoStep;

@@ -1,5 +1,5 @@
 const RangeHelper = function(a, b, step){
-    var A= [];
+    let  A= [];
     if(typeof a== 'number'){
         A[0]= a;
         step= step || 1;
@@ -8,7 +8,7 @@ const RangeHelper = function(a, b, step){
         }
     }
     else{
-        var s= 'abcdefghijklmnopqrstuvwxyz';
+        let s= 'abcdefghijklmnopqrstuvwxyz';
         if(a=== a.toUpperCase()){
             b=b.toUpperCase();
             s= s.toUpperCase();
@@ -17,6 +17,6 @@ const RangeHelper = function(a, b, step){
         A= s.split('');
     }
     return A;
-}
+};
 
 export default RangeHelper;

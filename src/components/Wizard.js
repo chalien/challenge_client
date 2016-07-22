@@ -1,10 +1,10 @@
-import React, { PropTypes } from 'react';
-import Step from './Step'
+import React from 'react';
+import Step from './Step';
 
-const Wizard = (props) => {
+const Wizard = () => {
   return (
     <div className="wizard">
-      <Step></Step>
+      <Step/>
     </div>
   );
 };

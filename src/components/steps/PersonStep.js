@@ -1,16 +1,16 @@
 import React, { PropTypes } from 'react';
-import PeopleList from './Peoplelist'
+import PeopleList from './PeopleList';
 import isEmail from 'validator/lib/isEmail';
 import isNumeric from 'validator/lib/isNumeric';
-var { createClass } = React;
+let { createClass } = React;
 
 const PersonStep = createClass({
   propTypes: {
-    'onNextHandler': React.PropTypes.func.isRequired,
-    'onBackHandler': React.PropTypes.func.isRequired,
-    'savePerson': React.PropTypes.func.isRequired,
-    'removePerson': React.PropTypes.func.isRequired,
-    'people': React.PropTypes.array.isRequired
+    'onNextHandler': PropTypes.func.isRequired,
+    'onBackHandler': PropTypes.func.isRequired,
+    'savePerson': PropTypes.func.isRequired,
+    'removePerson': PropTypes.func.isRequired,
+    'people': PropTypes.array.isRequired
   },
 
   getInitialState(){
@@ -27,7 +27,7 @@ const PersonStep = createClass({
   onSubmitHandler(e){
     e.preventDefault();
     if (!this.isValid()) return null;
-    var { people, lastName, firstName, ...attributes} = this.state;
+    let { lastName, firstName, ...attributes} = this.state;
     this.props.savePerson(Object.assign({}, attributes, {
       last_name: lastName,
       first_name: firstName
@@ -47,27 +47,27 @@ const PersonStep = createClass({
   },
 
   handleChange(event){
-    var { name, value } = event.target;
-    var changedOption = {};
+    let { name, value } = event.target;
+    let changedOption = {};
     changedOption[name] =  value;
 
     this.setState(changedOption);
   },
 
   genderChange(event) {
-    var value = event.target.value;
+    let value = event.target.value;
     this.setState({gender: value});
   },
 
   validNumberOfAge(){
-    var { age } = this.state;
+    let { age } = this.state;
 
     if (!age|| !isNaN(age)|| isNumeric(age)) return '';
     if (!isNumeric(age)) return 'error';
   },
 
   validEmail(){
-    var { email } = this.state;
+    let { email } = this.state;
 
     if (!email|| !isNaN(email)|| isEmail(email)) return '';
     if (!isEmail(email)) return 'error';
@@ -91,17 +91,17 @@ const PersonStep = createClass({
               <input type="input" onChange={this.handleChange} name="lastName" id="lastName" placeholder="Last Name" className="form-control" required/>
             </div>
 
-            <div className={ "form-group has-" + this.validEmail() }>
-              <label htmlFor="email" className="padding-both-8">Email</label>
+            <div className={"form-group has-" + this.validEmail()}>
+              <label htmlFor="email" className="padding-both-7">Email</label>
               <input type="input" onChange={this.handleChange} name="email" id="email" placeholder="Email" className="form-control" required/>
-              { this.validEmail() == 'error' ?   <span  className="help-block">This is not a valid email.</span> : null }
+              {this.validEmail() == 'error' ?   <span  className="help-block">This is not a valid email.</span> : null}
             </div>
           </div>
 
-          <div className= { "form-group has-" + this.validNumberOfAge() }>
+          <div className= {"form-group has-" + this.validNumberOfAge()}>
             <label htmlFor="age" className="padding-both-8">Age</label>
             <input type="input" onChange={this.handleChange} name="age" id="age" placeholder="Age" className="form-control" required/>
-            { this.validNumberOfAge() == 'error' ?   <span  className="help-block">This is not a number.</span> : null }
+            {this.validNumberOfAge() == 'error' ?   <span  className="help-block">This is not a number.</span> : null}
           </div>
 
           <div className="form-group">
@@ -117,7 +117,7 @@ const PersonStep = createClass({
           </div>
 
           <br/>
-          <PeopleList people = { this.props.people } removePerson = { this.props.removePerson } ></PeopleList>
+          <PeopleList people = {this.props.people} removePerson = {this.props.removePerson} />
 
           <div className="step-container">
             <button className="btn btn-default" type="button" onClick={this.onBackHandler}>Back</button>

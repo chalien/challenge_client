@@ -1,9 +1,9 @@
 import React, { PropTypes } from 'react';
 
 const PeopleList= (props) => {
-  var removePerson = function(event) {
-    var id = event.target.dataset.id;
-    props.removePerson(id)
+  let removePerson = function(event) {
+    let id = event.target.dataset.id;
+    props.removePerson(id);
   };
 
   return (
@@ -20,7 +20,7 @@ const PeopleList= (props) => {
           </tr>
         </thead>
         <tbody>
-          { props.people.map(function(person) {
+          {props.people.map(function(person) {
             return (<tr key={person.id}>
                 <td>{person.id}</td>
                 <td>{person.firstName}</td>
@@ -28,14 +28,19 @@ const PeopleList= (props) => {
                 <td>{person.email}</td>
                 <td>{person.age}</td>
                 <td>{person.gender}</td>
-                <td> <a href="javascript: void(0)" data-id={person.id}  onClick = { removePerson } >Delete</a></td>
+                <td> <a href="javascript: void(0)" data-id={person.id}  onClick = {removePerson} >Delete</a></td>
             </tr>);
-          })
-          }
+          })}
         </tbody>
       </table>
     </div>
   );
+};
+
+PeopleList.propTypes = function(){
+  return {
+    'removePerson': PropTypes.func.isRequired,
+  };
 };
 
 export default PeopleList;

@@ -1,9 +1,9 @@
 import React, { PropTypes } from 'react';
 import Wizard from './Wizard';
 
-const App = (props) => {
+const App = () => {
   return (
-    <Wizard></Wizard>
+    <Wizard/>
   );
 };
 

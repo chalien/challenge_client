@@ -1,5 +1,5 @@
-var axios = require('axios');
-var JSONAPIDeserializer = require('jsonapi-serializer').Deserializer;
+let axios = require('axios');
+let JSONAPIDeserializer = require('jsonapi-serializer').Deserializer;
 
 axios.interceptors.response.use(
   function(response) {
@@ -11,7 +11,7 @@ axios.interceptors.response.use(
       return Promise.resolve(response);
     });
   }, function(error){
-    return Promise.reject(error)
+    return Promise.reject(error);
   }
 );
 
@@ -34,7 +34,7 @@ const HttpHelper = {
   },
 
   request(request_method, url, params) {
-    var options = Object.assign({}, {
+    let options = Object.assign({}, {
       method: request_method,
       url: url,
       baseURL: this.baseURL,
@@ -43,6 +43,6 @@ const HttpHelper = {
     }, params);
     return axios(options);
   }
-}
+};
 
 export default HttpHelper;
