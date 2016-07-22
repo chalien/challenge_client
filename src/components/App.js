@@ -1,5 +1,5 @@
 import React, { PropTypes } from 'react';
-import Wizard from './Wizard'
+import Wizard from './Wizard';
 
 const App = (props) => {
   return (
