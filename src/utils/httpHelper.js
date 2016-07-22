@@ -24,6 +24,10 @@ const HttpHelper = {
     return this.request('post', url, { data: params });
   },
 
+  put(url, params){
+    return this.request('put', url, { data: params });
+  },
+
   request(request_method, url, params) {
     var options = Object.assign({}, {
       method: request_method,

@@ -29,7 +29,7 @@ const HouseholdStep= createClass({
         city: this.state.city,
         state: this.state.state,
         number_of_bedrooms: this.state.numberOfBedrooms
-      });
+      }, this.state.id);
     }
   },
 

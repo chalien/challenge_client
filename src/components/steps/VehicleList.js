@@ -1,11 +1,12 @@
 import React, { PropTypes } from 'react';
 
-const VehiculeList = (props) => {
+const VehicleList = (props) => {
   return (
     <div className="margin-top-14">
       <table className="table person-table">
         <thead>
           <tr>
+            <th>Reference</th>
             <th>Make</th>
             <th>Model</th>
             <th>Year</th>
@@ -14,18 +15,22 @@ const VehiculeList = (props) => {
           </tr>
         </thead>
         <tbody>
-          <tr>
-            <td></td>
-            <td></td>
-            <td></td>
-            <td></td>
-            <td></td>
-          </tr>
+          { props.vehicles.map(function(vehicle) {
+            return (<tr key={vehicle.id}>
+                <td>{vehicle.id}</td>
+                <td>{vehicle.make}</td>
+                <td>{vehicle.model}</td>
+                <td>{vehicle.year}</td>
+                <td>{vehicle.licensePlate}</td>
+                <td>{vehicle.personId}</td>
+            </tr>);
+          })
+          }
         </tbody>
       </table>
     </div>
   );
 };
 
-export default VehiculeList;
+export default VehicleList;
 

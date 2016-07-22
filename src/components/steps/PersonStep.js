@@ -41,6 +41,10 @@ const PersonStep = createClass({
     this.props.onBackHandler();
   },
 
+  onNextHandler(){
+    this.props.onNextHandler();
+  },
+
   handleChange(event){
     var { name, value } = event.target;
     var changedOption = {};
@@ -114,7 +118,7 @@ const PersonStep = createClass({
           <br/>
           <PeopleList people = { this.props.people } ></PeopleList>
           <button className="btn btn-default" type="button" onClick={this.onBackHandler}>Back</button>
-           <input type="button" className="btn btn-default" value="Next" />
+           <input type="button" className="btn btn-default" onClick={this.onNextHandler} value="Next" />
         </form>
       </div>
     );
