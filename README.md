@@ -37,3 +37,7 @@ Running Server
   npm start -s
 ```
 *Note*: Test runs after any changes on the application
+
+## TESTING! ;)
+
+<img src="https://raw.github.com/chalien/challenge_client/master/testing.gif"  />
