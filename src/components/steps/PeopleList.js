@@ -1,9 +1,14 @@
 import React, { PropTypes } from 'react';
 
 const PeopleList= (props) => {
+  var removePerson = function(event) {
+    var id = event.target.dataset.id;
+    props.removePerson(id)
+  };
+
   return (
-    <div className="margin-top-14">
-      <table className="table person-table">
+    <div className="overflow table-container">
+      <table className="table ">
         <thead>
           <tr>
             <th>Reference</th>
@@ -23,6 +28,7 @@ const PeopleList= (props) => {
                 <td>{person.email}</td>
                 <td>{person.age}</td>
                 <td>{person.gender}</td>
+                <td> <a href="javascript: void(0)" data-id={person.id}  onClick = { removePerson } >Delete</a></td>
             </tr>);
           })
           }

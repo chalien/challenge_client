@@ -2,8 +2,8 @@ import React, { PropTypes } from 'react';
 
 const VehicleList = (props) => {
   return (
-    <div className="margin-top-14">
-      <table className="table person-table">
+    <div className="overflow table-container">
+      <table className="table">
         <thead>
           <tr>
             <th>Reference</th>

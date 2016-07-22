@@ -83,6 +83,21 @@ const Step = createClass({
     });
   },
 
+  removePerson(id) {
+    var context = this;
+    var { people } = this.state;
+
+    HttpHelper.delete('/people/' + id)
+    .then(function(response){
+      var results = people.filter(function(person) { person.id != id });
+      context.setState({people: results});
+    })
+    .catch(function(error){
+      console.warn(error);
+      // console.log(error.response.data);
+    });
+  },
+
   saveVehicle(attributes) {
     var context = this;
     var { vehicles } = this.state;
@@ -105,7 +120,7 @@ const Step = createClass({
     return (
       <div className="step">
         { currentStep == 'household' ? <HouseholdStep household = { this.state.household } saveHousehold= { this.saveHousehold } onNextHandler = { this.onNextHandler} onBackHandler= { this.onBackHandler }></HouseholdStep> : null }
-        { currentStep == 'person' ?  <PersonStep people = { this.state.people } savePerson = { this.savePerson } onNextHandler = { this.onNextHandler} onBackHandler= { this.onBackHandler }></PersonStep> : null }
+        { currentStep == 'person' ?  <PersonStep people = { this.state.people } removePerson = { this.removePerson } savePerson = { this.savePerson } onNextHandler = { this.onNextHandler} onBackHandler= { this.onBackHandler }></PersonStep> : null }
         { currentStep == 'vehicle' ?  <VehicleStep saveVehicle = { this.saveVehicle } people = { this.state.people } vehicles = { this.state.vehicles } onNextHandler = { this.onNextHandler} onBackHandler= { this.onBackHandler }></VehicleStep> : null }
         { currentStep == 'info' ?  <InfoStep household = { this.state.household }  people = { this.state.people } vehicles = { this.state.vehicles } onNextHandler = { this.onNextHandler} onBackHandler= { this.onBackHandler }></InfoStep> : null }
       </div>

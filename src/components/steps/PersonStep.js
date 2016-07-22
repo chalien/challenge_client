@@ -9,6 +9,7 @@ const PersonStep = createClass({
     'onNextHandler': React.PropTypes.func.isRequired,
     'onBackHandler': React.PropTypes.func.isRequired,
     'savePerson': React.PropTypes.func.isRequired,
+    'removePerson': React.PropTypes.func.isRequired,
     'people': React.PropTypes.array.isRequired
   },
 
@@ -116,9 +117,12 @@ const PersonStep = createClass({
           </div>
 
           <br/>
-          <PeopleList people = { this.props.people } ></PeopleList>
-          <button className="btn btn-default" type="button" onClick={this.onBackHandler}>Back</button>
-           <input type="button" className="btn btn-default" onClick={this.onNextHandler} value="Next" />
+          <PeopleList people = { this.props.people } removePerson = { this.props.removePerson } ></PeopleList>
+
+          <div className="step-container">
+            <button className="btn btn-default" type="button" onClick={this.onBackHandler}>Back</button>
+             <input type="button" className="btn btn-default" onClick={this.onNextHandler} value="Next" />
+           </div>
         </form>
       </div>
     );

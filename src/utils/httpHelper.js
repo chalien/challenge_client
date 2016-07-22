@@ -3,6 +3,7 @@ var JSONAPIDeserializer = require('jsonapi-serializer').Deserializer;
 
 axios.interceptors.response.use(
   function(response) {
+    if (!response.data) return '';
     return new JSONAPIDeserializer({keyForAttribute: 'camelCase'})
     .deserialize(response.data)
     .then(function(result){
@@ -26,6 +27,10 @@ const HttpHelper = {
 
   put(url, params){
     return this.request('put', url, { data: params });
+  },
+
+  delete(url){
+    return this.request('delete', url);
   },
 
   request(request_method, url, params) {

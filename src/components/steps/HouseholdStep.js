@@ -81,7 +81,9 @@ const HouseholdStep= createClass({
             { this.validNumberofBedrooms() == 'error' ?   <span  className="help-block">This is not a number.</span> : null }
           </div>
 
-           <input type="submit" className="btn btn-default" value="Next" />
+          <div className="step-container">
+            <input type="submit" className="btn btn-default" value="Next" />
+          </div>
         </form>
       </div>
     );

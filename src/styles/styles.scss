@@ -6,7 +6,6 @@ $icon-font-path: '~bootstrap-sass/assets/fonts/bootstrap/';
 }
 
 #app {
-  height: 90vh;
 }
 
 
@@ -19,9 +18,13 @@ $icon-font-path: '~bootstrap-sass/assets/fonts/bootstrap/';
   background-color: #ffffff
 }
 
+.overflow {
+  overflow: auto;
+}
+
 .wizard {
   max-width: 800px;
-  height: 90vh;
+  min-height: 90vh;
   margin-left: auto;
   margin-right: auto;
 }
@@ -51,8 +54,13 @@ $icon-font-path: '~bootstrap-sass/assets/fonts/bootstrap/';
   margin-top: 14px;
 }
 
-// Person classes
-.person-table {
-  height: 60vh;
+.table-container {
+  min-height: 400px;
 }
+
+.step-container {
+  padding-bottom: 20px;
+  margin-bottom: 0px;
+}
+
 

@@ -34,7 +34,9 @@ const InfoStep = (props) => {
         </div>
       </div>
 
-      <button className="btn btn-default" type="button" onClick={props.onBackHandler}>Back</button>
+      <div className="step-container">
+        <button className="btn btn-default" type="button" onClick={props.onBackHandler}>Back</button>
+      </div>
     </div>
   );
 };
