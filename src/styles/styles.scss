@@ -1,31 +1,58 @@
-/* Variables */
-$vin-blue: #5bb7db;
-$vin-green: #60b044;
-$vin-red: #ff0000;
+$icon-font-path: '~bootstrap-sass/assets/fonts/bootstrap/';
+@import '~bootstrap-sass/assets/stylesheets/bootstrap';
 
-/* Styles */
-body {
-  font: 14px 'Helvetica Neue', Helvetica, Arial, sans-serif;
-  line-height: 1.4em;
-  color: #4d4d4d;
-  min-width: 230px;
-  max-width: 550px;
-  margin: 0 auto;
-  -webkit-font-smoothing: antialiased;
-  -moz-font-smoothing: antialiased;
-  font-smoothing: antialiased;
-  font-weight: 300;
+.background {
+  background-color: #55acee;
 }
 
-td {
-	padding: 12px;
+#app {
+  height: 90vh;
 }
 
-h2 {
-	color: $vin-blue;
+
+.container {
+  max-width: 1070px;
+  margin-left: auto;
+  margin-right: auto;
+  margin-top: 5vh;
+  margin-bottom: 5vh;
+  background-color: #ffffff
 }
 
-.savings { color: $vin-green; }
-.loss { color: $vin-red; }
-input.small { width: 46px; }
-td.fuel-savings-label { width: 175px; }
+.wizard {
+  max-width: 800px;
+  height: 90vh;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.add-element {
+  &:hover { color: #55acee; }
+  font-size: 25px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.text-center {
+  text-align: center;
+}
+
+
+.padding-both-8 {
+  padding-right: 8px;
+  padding-left: 8px;
+}
+
+.padding-bottom-8{
+  padding-bottom: 8px;
+}
+
+.margin-top-14 {
+  margin-top: 14px;
+}
+
+// Person classes
+.person-table {
+  height: 60vh;
+}
+

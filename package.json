@@ -29,6 +29,7 @@
   "author": "",
   "license": "MIT",
   "dependencies": {
+    "bootstrap-sass": "3.3.6",
     "object-assign": "4.1.0",
     "react": "15.2.0",
     "react-dom": "15.2.0",

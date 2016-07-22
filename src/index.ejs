@@ -4,6 +4,7 @@
   **NOTE:** This is a template for index.html. It uses ejs and htmlWebpackPlugin to generate a different index.html for each environment. htmlWebpackPlugin will dynamically add references to the scripts and styles that it bundles to this file. The generated bundles have hash-based filenames, so it's necessary to add the references dynamically.
   For more info on ejs, see http://www.embeddedjs.com/. For examples of using it with htmlWebpackPlugin, see https://github.com/jaketrent/html-webpack-template/blob/master/index.ejs
   -->
+  <meta name="viewport" content="width=device-width, initial-scale=1">
 <head>
   <!--
     The htmlWebpackPlugin will parse the logic below so that trackJS is only added to the production version of index.html (since only webpack.config.prod.js provides the trackJS token)
@@ -19,7 +20,9 @@
   <meta charset="utf-8"/>
   <title>Fusion Starter</title>
 </head>
-<body>
-<div id="app"></div>
+<body class="background">
+  <div class="container">
+    <div id="app"></div>
+  </div>
 </body>
 </html>
