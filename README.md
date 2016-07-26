@@ -4,6 +4,8 @@ Web Client to consume [Challenge Server](https://github.com/chalien/challenge_se
 
 ## Installaction
 
+Install Node 4.0 or greater 
+
 ```
   $ git clone git@github.com:chalien/challenge_client.git
   $ npm install 
